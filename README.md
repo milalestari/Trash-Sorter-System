@@ -41,14 +41,100 @@ TrashSorter adalah aplikasi konsol berbasis Java yang dirancang untuk membantu p
                    +--------------------------+
 
 ## 📘 Class Diagram (UML)
++----------------+
+|    MainApp     |
++----------------+
+| +main()        |
+| +runUserMenu() |
+| +runAdminMenu()|
++----------------+
+       |
+       | uses
+       ↓
++---------------------+
+|  WasteInputService  |<------------------+
++---------------------+                   |
+| +getWasteInput()    |                   |
+| +getCustomInput()   |                   |
++---------------------+                   |
+        ▲                                 |
+        | implements                      |
++---------------------+                  |
+|   InputComponent    |------------------+
++---------------------+
 
++---------------------+
+|   SortingService    |<--------------------+
++---------------------+                     |
+| +sort(waste: String)|                     |
++---------------------+                     |
+        ▲                                   |
+        | implements                        |
++---------------------+                    |
+|   SorterComponent   |--------------------+
+| -history: HistoryComponent               |
++---------------------+
+
++------------------------+
+|  HistoryComponent      |
++------------------------+
+| +showHistory()         |
+| +searchHistory()       |
+| +clearHistory()        |
+| +showStats()           |
+| +getHistory()          |
++------------------------+
+
++------------------------+
+|  EducationComponent    |
++------------------------+
+| +showEducation()       |
+| +showTipsByCategory()  |
++------------------------+
 
 ## 📎Use Case Diagram
+               +--------+                      +--------+
+               |  User  |                      | Admin  |
+               +--------+                      +--------+
+                    |                               |
+      +-------------+-------------+     +-----------+-----------------+
+      |             |             |     |     |     |       |         |
++------------+ +-------------+ +--------------+ +-------------+ +--------------+
+| Pilih      | | Smart Sort | | Edukasi       | | Lihat       | | Ekspor       |
+| Jenis      | | (Manual)   | | Sampah        | | Statistik   | | Riwayat      |
+| Sampah     | +-------------+ +--------------+ +-------------+ +--------------+
++------------+                      |                            |
+       |                            |                            |
+       +-------------> Lihat Riwayat / Cari Riwayat <------------+
 
 
 ## 📑 Design by Contract (DbC)
+**Komponen**		
+SorterComponent		
+InputComponent			
+HistoryComponent
+EducationComponent
 
-## Struktur Projek
+**Precondition**
+Input tidak kosong
+User memilih input dari daftar/manual
+Riwayat tersedia (jika ingin ditampilkan)
+Kategori valid dimasukkan oleh user
+
+**Postcondition**	
+Output berupa kategori valid (Organik/Anorganik/B3)
+Mengembalikan string input valid
+Statistik ditampilkan atau diekspor	
+Tips edukatif muncul sesuai kategori
+
+**Invariant**
+History selalu dicatat dan konsisten
+Tidak boleh return null atau kosong
+Data tidak boleh berubah tanpa perintah
+Database edukasi tetap dan tidak duplikat
+
+
+## 📂 Struktur Projek
 TrashSorter/
 ├── MainApp.java                  # Program utama (entry point)
 ├── InputComponent.java           # Komponen input sampah
@@ -62,6 +148,18 @@ TrashSorter/
 │   └── ANSI.java                 # Utility untuk pewarnaan output di terminal
 ├── riwayat_sampah.txt            # File hasil ekspor riwayat
 └── README.md                     # Dokumentasi proyek
+
+## 💡 Prinsip yang Digunakan
+1. Modular Design
+   Setiap komponen memiliki tanggung jawab terpisah dan dapat dikembangkan secara independen.
+2. Object-Oriented Programming (OOP)
+   Penggunaan class, interface, dan pewarisan untuk fleksibilitas dan maintainability.
+3. Design by Contract
+   Setiap method dijalankan dengan precondition dan menghasilkan postcondition yang terjamin.
+4. UML Diagrams
+   Mendokumentasikan arsitektur dengan Class Diagram, Use Case Diagram, dan Component Diagram.
+
+   
 
 
 
