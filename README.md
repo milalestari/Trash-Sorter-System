@@ -41,71 +41,71 @@ TrashSorter adalah aplikasi konsol berbasis Java yang dirancang untuk membantu p
                    +--------------------------+
 
 ## 📘 Class Diagram (UML)
-+----------------+
-|    MainApp     |
-+----------------+
-| +main()        |
-| +runUserMenu() |
-| +runAdminMenu()|
-+----------------+
-       |
-       | uses
-       ↓
-+---------------------+
-|  WasteInputService  |<------------------+
-+---------------------+                   |
-| +getWasteInput()    |                   |
-| +getCustomInput()   |                   |
-+---------------------+                   |
-        ▲                                 |
-        | implements                      |
-+---------------------+                  |
-|   InputComponent    |------------------+
-+---------------------+
-
-+---------------------+
-|   SortingService    |<--------------------+
-+---------------------+                     |
-| +sort(waste: String)|                     |
-+---------------------+                     |
-        ▲                                   |
-        | implements                        |
-+---------------------+                    |
-|   SorterComponent   |--------------------+
-| -history: HistoryComponent               |
-+---------------------+
-
-+------------------------+
-|  HistoryComponent      |
-+------------------------+
-| +showHistory()         |
-| +searchHistory()       |
-| +clearHistory()        |
-| +showStats()           |
-| +getHistory()          |
-+------------------------+
-
-+------------------------+
-|  EducationComponent    |
-+------------------------+
-| +showEducation()       |
-| +showTipsByCategory()  |
-+------------------------+
+        +----------------+
+        |    MainApp     |
+        +----------------+
+        | +main()        |
+        | +runUserMenu() |
+        | +runAdminMenu()|
+        +----------------+
+               |
+               | uses
+               ↓
+        +---------------------+
+        |  WasteInputService  |<------------------+
+        +---------------------+                   |
+        | +getWasteInput()    |                   |
+        | +getCustomInput()   |                   |
+        +---------------------+                   |
+                ▲                                 |
+                | implements                      |
+        +---------------------+                  |
+        |   InputComponent    |------------------+
+        +---------------------+
+        
+        +---------------------+
+        |   SortingService    |<--------------------+
+        +---------------------+                     |
+        | +sort(waste: String)|                     |
+        +---------------------+                     |
+                ▲                                   |
+                | implements                        |
+        +---------------------+                    |
+        |   SorterComponent   |--------------------+
+        | -history: HistoryComponent               |
+        +---------------------+
+        
+        +------------------------+
+        |  HistoryComponent      |
+        +------------------------+
+        | +showHistory()         |
+        | +searchHistory()       |
+        | +clearHistory()        |
+        | +showStats()           |
+        | +getHistory()          |
+        +------------------------+
+        
+        +------------------------+
+        |  EducationComponent    |
+        +------------------------+
+        | +showEducation()       |
+        | +showTipsByCategory()  |
+        +------------------------+
 
 ## 📎Use Case Diagram
-               +--------+                      +--------+
-               |  User  |                      | Admin  |
-               +--------+                      +--------+
-                    |                               |
-      +-------------+-------------+     +-----------+-----------------+
-      |             |             |     |     |     |       |         |
-+------------+ +-------------+ +--------------+ +-------------+ +--------------+
-| Pilih      | | Smart Sort | | Edukasi       | | Lihat       | | Ekspor       |
-| Jenis      | | (Manual)   | | Sampah        | | Statistik   | | Riwayat      |
-| Sampah     | +-------------+ +--------------+ +-------------+ +--------------+
-+------------+                      |                            |
-       |                            |                            |
-       +-------------> Lihat Riwayat / Cari Riwayat <------------+
+                       +--------+                      +--------+
+                       |  User  |                      | Admin  |
+                       +--------+                      +--------+
+                            |                               |
+              +-------------+-------------+     +-----------+-----------------+
+              |             |             |     |     |     |       |         |
+        +------------+ +-------------+ +--------------+ +-------------+ +--------------+
+        | Pilih      | | Smart Sort | | Edukasi       | | Lihat       | | Ekspor       |
+        | Jenis      | | (Manual)   | | Sampah        | | Statistik   | | Riwayat      |
+        | Sampah     | +-------------+ +--------------+ +-------------+ +--------------+
+        +------------+                      |                            |
+               |                            |                            |
+               +-------------> Lihat Riwayat / Cari Riwayat <------------+
 
 
 ## 📑 Design by Contract (DbC)
