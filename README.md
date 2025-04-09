@@ -1,3 +1,6 @@
+## Mila Lestari 2208107010002 ##
+## Indriani Miza Alfiyanti 2208107010026 ##
+
 # Trash-Sorter-System
 
 TrashSorter adalah aplikasi konsol berbasis Java yang dirancang untuk membantu pengguna dalam menyortir sampah ke dalam kategori yang benar (Organik, Anorganik, atau B3), serta memberikan edukasi dan pencatatan riwayat penyortiran. Aplikasi ini bertujuan meningkatkan kesadaran lingkungan dengan pendekatan teknologi sederhana dan informatif.
