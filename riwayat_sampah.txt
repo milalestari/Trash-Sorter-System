@@ -1,0 +1,11 @@
+=== EXPORT RIWAYAT SAMPAH ===
+Waktu Export: 2025-04-09 22:47:16
+
+-- Statistik Sampah --
+Non-Organik: 1
+Organik: 2
+
+-- Riwayat Pemilahan --
+Sampah: sisa makanan -> Kategori: Organik
+Sampah: daun kering -> Kategori: Organik
+Sampah: kertas -> Kategori: Non-Organik
